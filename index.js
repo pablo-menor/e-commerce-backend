@@ -2,12 +2,15 @@ const express = require('express');
 const app = express();
 const PORT = 3008;
 
-//Mongo connection
+// Mongo connection
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/speedCubeShop').then(db => console.log('Connected to database'));
 
+// Middlewares
 app.use(express.json());    
-const userRouter = require('./routes/users.router')
-app.use('/', userRouter )
+
+// Routing
+const routerApi = require('./routes/index')
+routerApi(app);
 
 app.listen(PORT, ()=> console.log(`Server ready on port:  ${PORT}`));
