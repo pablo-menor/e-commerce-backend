@@ -20,5 +20,12 @@ router.post('/login', async (req, res)=>{
     res.json(user);
 })
 
+router.patch('/update', async (req, res)=>{
+    if (service.updateUser(req.body)) 
+        res.json({"message": "User updated"});
+    else
+    res.json({"message": "Error"});
+   
+})
 
 module.exports = router;

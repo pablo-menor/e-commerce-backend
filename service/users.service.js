@@ -25,6 +25,16 @@ class UsersService{
 
     }
 
+    async updateUser(reqBody){
+        let updated = false;
+        try {
+            const updtedUser = await User.updateOne({_id: reqBody._id}, {$set: reqBody});
+            updated = true;
+        } catch (error) {
+            next(err)
+        }
+        return updated;
+    }
 
 }
 
