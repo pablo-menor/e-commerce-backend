@@ -7,14 +7,22 @@ const userSchema = new Schema({
     name: String,
     lastName: String,
     birthDate: Date,
-    creditCard: {
+    creditCard: [
+        {
         number: String,
         cvv: String,
         expiryDate: Date,
         owner: String
-    },
+        }
+    ],
     email: String,
-    address: Array,
+    address: [
+        {
+            street: String,
+            building: String,
+            apartment: String,
+        }
+    ],
     password: String
 })
 
