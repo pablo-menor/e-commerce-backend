@@ -24,6 +24,12 @@ class ProductsService{
         }
         return result;
     }
+
+    async findAll(){
+        return Product.find()
+        // .skip(20*(pages-1)) 
+        // .limit(20) 
+    }
 }
 
 module.exports = ProductsService;

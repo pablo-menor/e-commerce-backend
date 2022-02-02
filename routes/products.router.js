@@ -12,4 +12,7 @@ router.get('/:id', async (req, res)=>{
     res.json( await service.findById(req.params.id)); 
 })
 
+router.get('/', async (req, res)=>{
+    res.json( await service.findAll()); 
+})
 module.exports = router;
