@@ -4,13 +4,21 @@ class OrderService{
     constructor(){
     }
     async findCart(id){
-        let result = await Order.findOne({userId: id}, {status = 'CART'})
+        let result = await Order.findOne({userId: id, status: 'CART'})
         return result;
     }
-    async createCart(userId){
-
+    async createCart(cart){
+        cart.status = 'CART'
+        const newCart = new Order(cart)
+        let result;
+        try {
+            result = await newCart.save();
+        } catch (error) {
+            result = null
+        }
+        return result;
     }
-    async createOrder(userId){
+    async createOrder(userId ){
 
     }
 
