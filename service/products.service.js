@@ -9,7 +9,7 @@ class ProductsService{
         try {
             result = await Product.find({ 'keywords': { $regex: search, $options: 'i' } })
         } catch (error) {
-            next(err);
+          result = [];
         }
        return result;
     }
@@ -20,7 +20,7 @@ class ProductsService{
         try {
             result = await Product.findById(id);
         } catch (error) {
-            next(err);
+            result = [];
         }
         return result;
     }

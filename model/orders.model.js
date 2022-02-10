@@ -10,7 +10,8 @@ const orderSchema = new Schema({
         }
     ],
     creditCard: String,
-    address:  String  
+    address:  String ,
+    status: String
 })
 
 module.exports = mongoose.model('Order', orderSchema);
