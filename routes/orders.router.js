@@ -11,4 +11,9 @@ router.post('/cart/', async (req, res)=>{
    res.json(await service.createCart(req.body))
 })
 
+router.patch('/cart/', async (req, res)=>{
+    console.log(req.body);
+    res.json(await service.updateCart(req.body))
+ })
+
 module.exports = router;

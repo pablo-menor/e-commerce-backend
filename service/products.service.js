@@ -30,6 +30,10 @@ class ProductsService{
         // .skip(20*(pages-1)) 
         // .limit(20) 
     }
+
+    async findByName(productName){
+        return await Product.findOne({name:productName})
+    }
 }
 
 module.exports = ProductsService;

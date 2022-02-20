@@ -18,8 +18,16 @@ class OrderService{
         }
         return result;
     }
-    async createOrder(userId ){
-
+    async updateCart(reqBody){
+        let updated = false;
+        try {
+            const updtedUser = await Order.updateOne({_id: reqBody._id}, {$set: reqBody});
+            console.log(updtedUser);
+            updated = true;
+        } catch (error) {
+            next(err)
+        }
+        return updated;
     }
 
 }

@@ -6,7 +6,8 @@ const orderSchema = new Schema({
     products: [
         {
             idProduct: String,
-            price: Number
+            price: Number,
+            amount: Number
         }
     ],
     creditCard: String,

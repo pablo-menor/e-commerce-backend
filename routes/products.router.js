@@ -15,4 +15,8 @@ router.get('/:id', async (req, res)=>{
 router.get('/', async (req, res)=>{
     res.json( await service.findAll()); 
 })
+
+router.post('/search', async (req, res) => {
+    res.json(await service.findByName(req.body.name))
+})
 module.exports = router;
